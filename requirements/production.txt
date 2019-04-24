@@ -2,6 +2,7 @@ autobahn
 cached_property
 crossbar
 dataset
+msgpack-python
 pbkdf2
 prettyconf
 psycopg2-binary
