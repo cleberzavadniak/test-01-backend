@@ -21,16 +21,13 @@ class Authenticator:
     def authenticate(self, username, alleged_password):
         users = self.db['users'].find(username=username)
 
-        if len(tuple(users)) == 0:
-            raise Exception('Wrong username')
-
         for user in users:
             if self.check_password(alleged_password, user['password']):
                 data = dict(user)
                 del data['password']
                 return data
 
-        raise Exception('Wrong password')
+        raise Exception('Wrong username or password')
 
     def generate_token(self):
         return str(uuid4()).replace('-', '')
