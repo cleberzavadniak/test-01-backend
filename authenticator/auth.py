@@ -8,8 +8,11 @@ import dataset
 
 class Authenticator:
     def __init__(self, salt):
-        self.db = dataset.connect()
         self.salt = salt
+        self.load_database()
+
+    def load_database(self):
+        self.db = dataset.connect()  # pragma: no cover
 
     def hash_password(self, password):
         return crypt(password, self.salt)
