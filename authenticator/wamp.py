@@ -7,9 +7,11 @@ from .auth import Authenticator
 
 class MyAuthenticator(ApplicationSession):
     def onConnect(self):
+        print('connected')
         self.join(self.config.realm, [u"ticket"], 'authenticator')
 
     def onJoin(self, details):
+        print('joining...')
         authenticator = Authenticator(salt=config('SALT', default='blebs'))
 
         try:
@@ -17,6 +19,8 @@ class MyAuthenticator(ApplicationSession):
             self.register(authenticator.sign_up, 'sign_up')
         except Exception as e:
             print(f"could not register {e}")
+        else:
+            print(f"methods registered")
 
     def onChallenge(self, challenge):
         if challenge.method == u"ticket":

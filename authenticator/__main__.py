@@ -7,9 +7,8 @@ from prettyconf import config
 from .wamp import MyAuthenticator
 
 
-PORT = config('PORT', default=80, cast=int)
 DOMAIN = config('DOMAIN')
-URL = f'ws://{DOMAIN}:{PORT}/ws'
+URL = f'wss://{DOMAIN}:443/ws'
 
 runner = ApplicationRunner(URL, 'world')
 runner.run(MyAuthenticator)
