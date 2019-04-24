@@ -92,7 +92,7 @@
                         "paths": {
                             "/": {
                                 "type": "static",
-                                "directory": "../frontend/build",
+                                "directory": "../web",
                                 "options": {"enable_directory_listing": false}
                             },
                             "info": {"type": "nodeinfo"},

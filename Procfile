@@ -1,1 +1,1 @@
-web: bin/backend.sh
+web: bin/run.sh
